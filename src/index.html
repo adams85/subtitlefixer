@@ -1,0 +1,111 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>SubtitleFixer</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="A free online tool for fixing timing issues of SRT subtitles." />
+    <meta name="robots" content="index" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/app.css" />
+</head>
+<body>
+    <div id="page">
+        <div id="layout" class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 panel panel-default">
+                    <div class="panel-body">
+                        <h2 class="title">SubtitleFixer</h2>
+                        <p>Fixes the timing issues of your SRT subtitles.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="params-row" class="row">
+                <div class="col-xs-12 panel panel-default">
+                    <div class="panel-heading">
+                        Parameters
+                    </div>
+                    <div class="panel-body">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-pills" role="tablist">
+                            <li role="presentation" class="active"><a href="#offset-factor" aria-controls="offset-factor" role="tab" data-toggle="tab">Offset &amp; Factor</a></li>
+                            <li role="presentation"><a href="#ref-points" aria-controls="ref-points" role="tab" data-toggle="tab">Reference Points</a></li>
+                        </ul>
+
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div id="offset-factor" class="tab-pane active" role="tabpanel">
+                                <h4>Specify the values of offset (delay) and linear correction factor.</h4>
+                                <p>Set factor to 1 if you want to apply an offset only.</p>
+                                <table class="table table-condensed param-table">
+                                    <tr>
+                                        <th>Offset</th>
+                                        <td><input id="offset-input" class="form-control" type="text" maxlength="13" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Factor</th>
+                                        <td><input id="factor-input" class="form-control" type="text" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div id="ref-points" class="tab-pane" role="tabpanel">
+                                <h4>Specify the timings of a line near the beginning and of a line near the end.</h4>
+                                <p>As you set these timings, values on the Offset &amp; Factor tab are updated accordingly. You can reuse these calculated values for subtitles with the same timing discrepancy.</p>
+                                <table class="table table-condensed param-table">
+                                    <tr>
+                                        <th></th>
+                                        <th>Beginning</th>
+                                        <th>End</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Subtitle</th>
+                                        <td><input id="subtitle-input-1" class="form-control" type="text" maxlength="12" /></td>
+                                        <td><input id="subtitle-input-2" class="form-control" type="text" maxlength="12" /></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Video</th>
+                                        <td><input id="video-input-1" class="form-control" type="text" maxlength="12" /></td>
+                                        <td><input id="video-input-2" class="form-control" type="text" maxlength="12" /></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="data-row" class="row">
+                <div id="input-panel" class="col-xs-12 col-sm-5 panel panel-default">
+                    <div class="panel-heading">
+                        Input
+                    </div>
+                    <div class="panel-body">
+                        <textarea id="input-text" placeholder="Drag SRT file or paste its content here"></textarea>
+                    </div>
+                </div>
+                <div id="button-panel" class="col-xs-12 col-sm-2">
+                    <div class="wrapper">
+                        <button id="adjust-button" class="btn btn-primary btn-lg">Adjust</button>
+                    </div>
+                    <div class="wrapper">
+                        <button id="download-button" class="btn btn-primary btn-lg" disabled>Download</button>
+                    </div>
+                </div>
+                <div id="output-panel" class="col-xs-12 col-sm-5 panel panel-default">
+                    <div class="panel-heading">
+                        Output
+                    </div>
+                    <div class="panel-body">
+                        <textarea id="output-text" placeholder="Click Adjust button to generate output" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.3.1.min.js" crossorigin="anonymous" integrity="sha384-tsQFqpEReu7ZLhBV2VZlAu7zcOV+rXbYlF2cqB8txI/8aZajjp4Bqd+V6D5IgvKT"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js" crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"></script>
+    <script src="../node_modules/subtitle/dist/subtitle.bundle.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

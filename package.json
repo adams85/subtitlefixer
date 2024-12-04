@@ -1,0 +1,14 @@
+{
+  "name": "subtitlefixer",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "subtitle": "2.0.0"
+  },
+  "devDependencies": {
+    "uglify-js": "^3.19.3",
+    "uglifycss": "^0.0.29"
+  }
+}
